@@ -22,13 +22,42 @@
     left: 30vw;
 }
 
-.pipe_sprite{
+/* .pipe_sprite{
     position: fixed;
     top: 40vh;
     left: 100vw;
     height: 70vh;
     width: 4.5vw;
+    transform: rotate(180deg);
     background: url('img/flappybird-pipe.png');
+}
+
+.pipe_sprite_inv{
+    position: fixed;
+    top: 40vh;
+    transform: rotate(180deg);
+    right: 100vw;
+    height: 70vh;
+    width: 4.5vw;
+    background: url('img/flappybird-pipe.png');
+} */
+
+.pipe_sprite{
+    position: fixed;
+    top: -30vh;
+    left: 100vw;
+    height: 70vh;
+    width: 7vw;
+}
+#im1{
+    height: 70vh;
+    width: 100%;
+    transform: rotate(180deg);
+}
+#im2{
+    height: 70vh;
+    width: 100%;
+    transform: rotate(360deg);
 }
 
 .message{
@@ -68,7 +97,6 @@
 
 @media only screen and (max-width: 1080px) {
     .message{
-        font-size: 50px;
         top: 50%;
         white-space: nowrap;
     }
@@ -83,6 +111,6 @@
     }
 
     .pipe_sprite{
-        width: 14vw;
+        width: 8vw;
     }
 }

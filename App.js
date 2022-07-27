@@ -35,6 +35,7 @@ function play(){
         if(game_state != 'Play')return;
 
         let pipe_sprite = document.querySelectorAll('.pipe_sprite');
+
         pipe_sprite.forEach((element)=>{
             let pipe_sprite_props = element.getBoundingClientRect();
             bird_props = bird.getBoundingClientRect();
@@ -74,7 +75,7 @@ function play(){
         document.addEventListener('keydown', (e)=>{
             if (e.keyCode == 38 || e.keyCode == 32) {
                 image.src = 'img/PngItem_3385783.png';
-                bird_dy = -7.6;
+                bird_dy =+ -7.6;
             }
         })
 
@@ -104,13 +105,22 @@ function play(){
         if(game_state != 'Play')return;
 
         if (pipe_separation > 115) {
+
+            let pipe_img_f = document.createElement('img');
+            pipe_img_f.id = 'im1';
+            pipe_img_f.src = 'img/flappybird-pipe.png';
+
+            let pipe_img_s = document.createElement('img');
+            pipe_img_s.id = 'im2';
+            pipe_img_s.src = 'img/flappybird-pipe.png';
+
             pipe_separation = 0;
             let pipe_posi = Math.floor(Math.random() * 43)+8;
             let pipe_sprite_inv = document.createElement('div');
             pipe_sprite_inv.className = 'pipe_sprite';
-            pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
+            pipe_sprite_inv.style.top = pipe_posi - 75 + 'vh';
             pipe_sprite_inv.style.left = '100vw';
-
+            pipe_sprite_inv.appendChild(pipe_img_f);
             document.body.appendChild(pipe_sprite_inv);
 
             let pipe_sprite = document.createElement('div');
@@ -118,7 +128,7 @@ function play(){
             pipe_sprite.style.top = pipe_posi + pipe_gap + 'vh';
             pipe_sprite.style.left = '100vw';
             pipe_sprite.increase_score = '1';
-
+            pipe_sprite.appendChild(pipe_img_s);
             document.body.appendChild(pipe_sprite);
         }
         pipe_separation++;
